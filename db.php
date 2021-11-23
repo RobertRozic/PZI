@@ -15,7 +15,7 @@ if ($mysqli->connect_errno) {
   echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
   exit();
 } else {
-  echo "Uspjesno ste spojeni na bazu!\n";
+  //echo "Uspjesno ste spojeni na bazu!\n";
   
   $sql = "SELECT * FROM users";
   
@@ -23,7 +23,7 @@ if ($mysqli->connect_errno) {
   
   if ($result) {
 	  $row = $result->fetch_row();
-	  echo json_encode($row);
+	  //echo json_encode($row);
   }
 }
 ?>
