@@ -1,6 +1,6 @@
 # Programiranje za internet
 
-Repozitorij materijala s vje\bi kolegija programiranje za internet 2021./2022.
+Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
 
 ## Upute za postavljanje projekta na studentski server
 
@@ -32,7 +32,7 @@ Repozitorij materijala s vje\bi kolegija programiranje za internet 2021./2022.
   
 Folder koji linkate je folder u kojem se nalazi vaš index.html/index.php
 
-#### Čisti PHP
+##### Čisti PHP
 Najčešće index.php stavljate u sami root (početni direktorij projekta)
 Moguće je napraviti poseban direktorij npr. public u kojem se nalazi ono što će biti javno dostupno.
 
@@ -52,14 +52,15 @@ Kada se aplikacija builda, ona za dohvacanje potrebnih ovisnih fileova (dependen
 poput javascript skripta i css-a provjerava u root folderu stranice (studenti.sum.ba/)
 
 Potrebno je podesiti da stranica ove datoteke traži u vašem podfolderu
-######Vue.js
+
+###### Vue.js
 U vue.config.js dodati sljedeći redak sa baseUrl
 ######
     module.exports = {
         baseUrl: "./projekti/pzi/YYYY/gX/"
     };
 
-######Angular.js
+###### Angular.js
 Prilikom pokretanja _ng build_ naredbe dodati --base-href parametar
 #####
     ng build --base-href=/projekti/pzi/YYYY/gX/
@@ -72,7 +73,7 @@ Ukoliko imate problema s postavljanjem, javite se na email
 `robert.rozic@fpmoz.sum.ba`
 
 
-##Osnovne naredbe u linuxu
+## Osnovne naredbe u linuxu
 * **cd** - Promjena direktorija (**c**hange **d**irectory)
 
 `cd public`
