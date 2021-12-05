@@ -4,6 +4,7 @@ Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
 
 ## Upute za postavljanje projekta na studentski server
 
+
 #### 1. Prijava na studentski poslužitelj
 
     Host: studenti.sum.ba
@@ -74,7 +75,9 @@ Nakon pristupa folderu u kojem se nalazi vaš projekt, koristite naredbu
     git pull
 Ova naredba povlači sve promjene koje ste postavili na javni github repozitorij
 
-<br>
+
+### [Video lekcija](https://www.youtube.com/watch?v=R4_Pqt3lhPk)
+
 
 Ukoliko imate problema s postavljanjem, javite se na email `robert.rozic@fpmoz.sum.ba`
 
