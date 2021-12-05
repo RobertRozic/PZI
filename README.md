@@ -64,13 +64,19 @@ U vue.config.js dodati sljedeći redak sa baseUrl
 Prilikom pokretanja _ng build_ naredbe dodati --base-href parametar
 #####
     ng build --base-href=/projekti/pzi/YYYY/gX/
-<br>
 
 ### Aplikacija je dostupna na linku
     https://studenti.sum.ba/projekti/pzi/YYYY/gX
 
-Ukoliko imate problema s postavljanjem, javite se na email
-`robert.rozic@fpmoz.sum.ba`
+### Ažuriranje projekta
+Nakon pristupa folderu u kojem se nalazi vaš projekt, koristite naredbu
+####
+    git pull
+Ova naredba povlači sve promjene koje ste postavili na javni github repozitorij
+
+<br>
+
+Ukoliko imate problema s postavljanjem, javite se na email `robert.rozic@fpmoz.sum.ba`
 
 
 ## Osnovne naredbe u linuxu
