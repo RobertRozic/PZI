@@ -2,6 +2,41 @@
 
 Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
 
+## Upute za izradu laravel aplikacije
+
+#### 1. Pokrenuti laragon
+#### 2. Kreirati laravel aplikaciju
+Desnim klikom na laragon sučelje odabrati kreiranje nove Laravel aplikacije
+
+ili 
+
+Koristeći composer putem terminala  
+`composer create-project --prefer-dist laravel/laravel pzi_projekt`
+
+#### 3. Kreirati bazu podataka
+Koristeći laragon heidi alat, kreirati novu bazu podataka.  
+Ukoliko ste projekt izradili preko laragon sučelja, baza se automatski kreira.
+
+#### 4. Postaviti okruženje (.env)
+Unutar .env datoteke postaviti okruženje i podatke za pristup bazi podataka
+
+DB_DATABASE=pzi_projekt // Ime vase baze  
+DB_USERNAME=root  
+DB_PASSWORD=  
+
+#### Kreiranje laravel AUTH
+composer require laravel/ui  
+php artisan ui vue --auth  
+php artisan migrate  
+
+#### NPM
+npm install  
+npm run dev // Dev za debug nacin rada  
+ili  
+npm run watch // automatski osvjezava promjene css/js
+
+**Aplikacija je lokalno dostupna na pzi_projekt.test**
+
 ## Upute za postavljanje projekta na studentski server
 
 
