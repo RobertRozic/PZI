@@ -101,6 +101,22 @@ Prilikom pokretanja _ng build_ naredbe dodati --base-href parametar
 #####
     ng build --base-href=/projekti/pzi/YYYY/gX/
 
+
+##### Baza podataka
+Na studentskom poslužitelju svaka grupa ima MySql bazu.  
+
+Pristupni podaci su (.env laravel konfiguracija):  
+DB_HOST=localhost (localhost na samom poslužitelju)  
+DB_DATABASE=pziXXYYYY    
+DB_USERNAME=pziXXYYYY  
+DB_PASSWORD=csdigitalYYYY
+
+Bazi podataka možete pristupiti putem phpmyadmin-a instaliranog na poslužitelju.  
+Putem PhpMyAdmina možete raditi import podataka koje imate na lokalnoj bazi.
+
+[PHPMyAdmin](https://studenti.sum.ba/phpmyadmin)
+
+
 ### Aplikacija je dostupna na linku
     https://studenti.sum.ba/projekti/pzi/YYYY/gX
 
