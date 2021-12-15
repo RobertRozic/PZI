@@ -2,7 +2,7 @@
 
 Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
 
-## Upute za izradu laravel aplikacije
+## Upute za izradu laravel aplikacije (lokalno)
 
 #### 1. Pokrenuti laragon
 #### 2. Kreirati laravel aplikaciju
@@ -132,6 +132,54 @@ Ova naredba povlači sve promjene koje ste postavili na javni github repozitorij
 
 Ukoliko imate problema s postavljanjem, javite se na email `robert.rozic@fpmoz.sum.ba`
 
+
+## Postavljanje laravel aplikacije na studentski poslužitelj
+Prilikom postavljanja laravel aplikacije na studentski poslužitelj potrebno je:
+
+#### 1. Spojiti se na studentski poslužitelj (upute iznad)
+
+#### 2. Klonirati git repozitorij u svoj radni prostor
+    git clone https://github.com/RobertRozic/PZI-2021-2022.git
+
+#### 3. Napraviti simbolički link na **public** direktorij u laravel projektu
+
+    ln -s /home/pziXXYYYY/ime-projekta/laravel/public/ /home/pziXXYYYY/public
+
+#### 4. Instalirati composer dependency-je
+
+    cd ~/ime-projekta/laravel
+    composer install
+
+#### 5. Podesiti .env na poslužitelju
+Primjer kopiramo u .env file
+
+    cp .env.example .env
+
+Podesimo bazu
+
+    DB_DATABASE=pziXXYYYY
+    DB_USERNAME=pziXXYYYY
+    DB_PASSWORD=csdigitalYYYY
+
+Generiramo key aplikacije
+
+    php artisan key:generate
+
+#### 6. Podesiti permisije
+    chgrp -R www-data storage bootstrap/cache
+    chmod -R ug+rwx storage bootstrap/cache
+
+#### 7. Unutar routes/web.php podesiti root link
+    URL::forceRootUrl('https://studenti.sum.ba/projekti/fsre/YYYY/gX');
+
+#### 8. U app/Providers/AppServiceProvider.php u boot funckiju dodati
+
+    public function boot()
+    {
+         if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
+              \URL::forceScheme('https');
+         }
+     }
 
 ## Osnovne naredbe u linuxu
 * **cd** - Promjena direktorija (**c**hange **d**irectory)
