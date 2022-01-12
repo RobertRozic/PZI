@@ -1,16 +1,47 @@
 <?php
+// Spajanje na bazu
 require "db.php";
 
-$ime = $_GET["first_name"];
-$prezime = $_GET["last_name"];
+// Pokretanje sesije
+session_start();
 
-//var_dump($_GET);
+$_SESSION['ime'] = 'robert';
 
-$insert_query = "INSERT INTO users (first_name, last_name) values ('$ime', '$prezime')";
-var_dump($insert_query);
-$result = $mysqli->query($insert_query);
+var_dump($_SESSION);
+//print_r($_SERVER);
 
-echo $result;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST["first_name"]) && isset($_POST["last_name"])) {
+        $ime = $_POST["first_name"];
+        $prezime = $_POST["last_name"];
+        $lozinka = $_POST["password"];
+
+        $hashirana_lozinka = password_hash($lozinka, PASSWORD_DEFAULT);
+
+        $insert_query = "INSERT INTO users (first_name, last_name, password) values ('$ime', '$prezime', '$hashirana_lozinka')";
+        //var_dump($insert_query);
+        $result = $mysqli->query($insert_query);
+    }
+} else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    $id = $_GET["id"];
+    $lozinka = $_GET["password"];
+
+    $get_query = "SELECT * from users where id = '$id'";
+
+    $result = $mysqli->query($get_query);
+
+    $user = $result->fetch_assoc();
+
+    if (password_verify($lozinka, $user['password'])) {
+        echo 'Uspjesna prijava!';
+    } else {
+        echo 'Neuspjesna prijava!';
+    }
+}
+
+
+
+
 
 ?>
 
@@ -29,13 +60,24 @@ echo $result;
   <body>
     <h1>Hello, world!</h1>
 
-    <form>
+    <form method="POST">
         <label for="fname">First name:</label><br>
         <input type="text" id="fname" name="first_name"><br>
         <label for="lname">Last name:</label><br>
-        <input type="text" id="lname" name="last_name">
+        <input type="text" id="lname" name="last_name"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password">
         <input type="submit">
     </form>
+
+    <form method="GET">
+        <label for="identifier">First name:</label><br>
+        <input type="text" id="identifier" name="id"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password">
+        <input type="submit">
+    </form>
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
