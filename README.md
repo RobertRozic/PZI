@@ -80,27 +80,7 @@ Nakon izvršene naredbe, u direktoriju vašeg projekta će se pojaviti **dist** 
 Zbog jednostavnosti ćemo ovaj direktorij postaviti na github i na njega postaviti simbolički link s public foldera na studentskom poslužitelju.
 Po početnim postavkama vue.js i angular.js taj direktorij postavljaju u .gitignore file.
 Sve što se nalazi zapisano u .gitignore file-u, git ignorira i ne postavlja na github repozitorij.
-Kako bi ipak postavili dist na github, potreno je izbrisati red u kojima je zapisan dist direktorij.  
-
-
-Stranice se nalaze u poddirektoriju (subfolder) web servera.
-Kada se aplikacija builda, ona za dohvacanje potrebnih ovisnih fileova (dependency)
-poput javascript skripta i css-a provjerava u root folderu stranice (studenti.sum.ba/)
-
-Potrebno je podesiti da stranica ove datoteke traži u vašem podfolderu
-
-###### Vue.js
-U vue.config.js dodati sljedeći redak sa baseUrl
-######
-    module.exports = {
-        baseUrl: "./projekti/pzi/YYYY/gX/"
-    };
-
-###### Angular.js
-Prilikom pokretanja _ng build_ naredbe dodati --base-href parametar
-#####
-    ng build --base-href=/projekti/pzi/YYYY/gX/
-
+Kako bi ipak postavili dist na github, potreno je izbrisati red u kojima je zapisan dist direktorij.
 
 ##### Baza podataka
 Na studentskom poslužitelju svaka grupa ima MySql bazu.  
@@ -118,7 +98,7 @@ Putem PhpMyAdmina možete raditi import podataka koje imate na lokalnoj bazi.
 
 
 ### Aplikacija je dostupna na linku
-    https://studenti.sum.ba/projekti/pzi/YYYY/gX
+    http://pziXXYYY.studenti.sumit.sum.ba/
 
 ### Ažuriranje projekta
 Nakon pristupa folderu u kojem se nalazi vaš projekt, koristite naredbu
@@ -128,7 +108,6 @@ Ova naredba povlači sve promjene koje ste postavili na javni github repozitorij
 
 
 ### [Video lekcija](https://www.youtube.com/watch?v=R4_Pqt3lhPk)
-
 
 Ukoliko imate problema s postavljanjem, javite se na email `robert.rozic@fpmoz.sum.ba`
 
@@ -169,18 +148,6 @@ Generiramo key aplikacije
     chgrp -R www-data storage bootstrap/cache
     chmod -R ug+rwx storage bootstrap/cache
 
-#### 7. Unutar routes/web.php podesiti root link
-    URL::forceRootUrl('https://studenti.sum.ba/projekti/fsre/YYYY/gX');
-
-#### 8. U app/Providers/AppServiceProvider.php u boot funckiju dodati
-
-    public function boot()
-    {
-         if (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) || isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&  $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') {
-              \URL::forceScheme('https');
-         }
-     }
-
 ## Osnovne naredbe u linuxu
 * **cd** - Promjena direktorija (**c**hange **d**irectory)
 
@@ -200,7 +167,7 @@ Vraćanje u prethodni direktorij
 
 * **nano** - Ugrađeni tekstualni editor
 
-`touch test.txt`
+`nano test.txt`
 
 Za izlazak iz editora koristi se CTRL+X, zatim editor pita za spremanje datoteke.
 
@@ -209,5 +176,9 @@ Pritisnite y (za da) ili n (za ne).
 * **ln -s** - Kreiranje simboličkog linka
 
 `ln -s izvor odrediste`
+
+Brisanje datoteke/direktorija
+
+`rm -rf public`
 
 
