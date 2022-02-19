@@ -15,6 +15,11 @@
           Welcome to Vuetify
         </h1>
 
+        <!-- Print user name on home screen -->
+        <h1 v-if="user" class="display-2 font-weight-bold mb-3">
+          {{user.name}}
+        </h1>
+
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
           <br>please join our online
@@ -94,6 +99,18 @@
 <script>
   export default {
     name: 'HelloWorld',
+
+    computed: {
+      // Get user from vuex store
+      user () {
+        return this.$store.getters.getUser
+      }
+    },
+
+    mounted () {
+      // Try to get logged user on initialization of component
+      this.$store.dispatch('getUser')
+    },
 
     data: () => ({
       ecosystem: [

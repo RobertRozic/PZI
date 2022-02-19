@@ -1,12 +1,41 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+        v-model="drawer"
+        app
+    >
+
+      <div @click="logout">Logout</div>
+
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer">
+
+      </v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
+
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
+
+<script>
+export default {
+  data: () => ({ drawer: null }),
+  methods: {
+    logout() {
+      // Remove token on logout
+      localStorage.removeItem('app_token')
+      this.$router.go(0)
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
