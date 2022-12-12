@@ -57,7 +57,7 @@ npm run watch // automatski osvjezava promjene css/js
 <br>
 
 #### 2. Unutar Vašeg foldera klonirati repozitorij s githuba
-    git clone https://github.com/RobertRozic/PZI-2021-2022.git
+    git clone https://github.com/RobertRozic/PZI.git
 <br>
 
 #### 3. Napraviti simbolički link sa root/public/dist foldera projekta public folder na posluzitelju
@@ -86,7 +86,7 @@ Kako bi ipak postavili dist na github, potreno je izbrisati red u kojima je zapi
 
 
 ### Aplikacija je dostupna na linku
-    http://pziXXYYY.studenti.sumit.sum.ba/
+    http://pziXXYYY.studenti.sum.ba/
 
 ### Baza podataka
 Na studentskom poslužitelju svaka grupa ima MySql bazu.
@@ -120,7 +120,7 @@ Prilikom postavljanja laravel aplikacije na studentski poslužitelj potrebno je:
 #### 1. Spojiti se na studentski poslužitelj (upute iznad)
 
 #### 2. Klonirati git repozitorij u svoj radni prostor
-    git clone https://github.com/RobertRozic/PZI-2021-2022.git
+    git clone https://github.com/RobertRozic/PZI.git
 
 #### 3. Napraviti simbolički link sa **public** direktorij-a u laravel projektu na **backend** folder na posluzitelj
 
@@ -152,7 +152,7 @@ Generiramo key aplikacije
     chmod -R ug+rwx storage bootstrap/cache
 
 ### Backend aplikacije je dostupan na linku
-    http://pziXXYYY.studenti.sumit.sum.ba/backend
+    http://pziXXYYY.studenti.sum.ba/backend
 
 
 ## Osnovne naredbe u linuxu
