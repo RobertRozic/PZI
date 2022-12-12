@@ -1,6 +1,6 @@
 # Programiranje za internet
 
-Repozitorij materijala s vježbi kolegija programiranje za internet 2021./2022.
+Repozitorij materijala s vježbi kolegija "Programiranje za internet" FPMOZ
 
 ## Upute za izradu laravel aplikacije (lokalno)
 
