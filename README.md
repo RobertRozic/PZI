@@ -22,12 +22,7 @@ Unutar .env datoteke postaviti okruženje i podatke za pristup bazi podataka
 
 DB_DATABASE=pzi_projekt // Ime vase baze  
 DB_USERNAME=root  
-DB_PASSWORD=  
-
-#### Kreiranje laravel AUTH
-composer require laravel/ui  
-php artisan ui vue --auth  
-php artisan migrate  
+DB_PASSWORD=
 
 #### NPM
 npm install  
@@ -35,8 +30,68 @@ npm run dev // Dev za debug nacin rada
 ili  
 npm run watch // automatski osvjezava promjene css/js
 
-**Aplikacija je lokalno dostupna na pzi_projekt.test**
+*Aplikacija je lokalno dostupna na pzi_projekt.test**
 
+#### Kreiranje baze podataka
+    php artisan migrate
+
+DROP cijele baze i ponovno pokretanje migracija! Oprez!
+
+    php artisan migrate:fresh
+
+#### Kreiranje modela
+    php artisan make:model Car -mcr --api
+
+#### Uređivanje migracije
+File database/migrations/timestamp_create_model_table.php
+
+Ponovno pokrenuti migraciju kako bi se odrazile promjene
+    php artisan migrate
+
+#### Dodavanje polja u bazi u fillable
+Kako bi se polja mogla upisivati kroz Eloquent ORM metode, potrebno je omoguciti da polja u bazi budu tzv. mass assignable.
+
+To postižemo override-om $fillable svojstva unutar našeg modela npr.
+
+app/models/Car.php
+
+        protected $fillable = ['manufacturer', 'year', 'model_name', 'color'];
+
+
+
+#### PHP Laravel tinker
+Ulaskom u tinker otvara se php shell sa laravel okruzenjem.
+Služi za testiranje pojedinih naredbenih linija koda.
+
+    php artisan tinker
+
+#### CRUD modela u tinker-u
+
+CREATE
+
+     Car::create(['manufacturer'=>'Audi', 'model_name'=>'A6', 'year'=>2020])
+
+READ
+
+Svi modeli (array)
+
+    Car::all()
+
+Jedan model po ID (objekt)
+
+    Car::find(1)
+
+UPDATE
+
+    $car = Car::find(1);
+    $car->model_name = 'A4';
+    $car->save();
+
+DELETE
+
+    $car = Car::find(1);
+    $car->delete();
+    
 ## Upute za postavljanje frondenda projekta na studentski server
 
 
