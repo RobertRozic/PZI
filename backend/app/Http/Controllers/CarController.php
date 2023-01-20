@@ -14,7 +14,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        return Car::all();
     }
 
     /**
@@ -25,7 +25,11 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Car::create([
+            'manufacturer'=> $request->manufacturer,
+            'model_name'=> $request->model_name,
+            'year'=> $request->year
+        ]);
     }
 
     /**
@@ -36,7 +40,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return $car;
     }
 
     /**
@@ -48,7 +52,11 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        return $car->update([
+            'manufacturer'=> $request->manufacturer,
+            'model_name'=> $request->model_name,
+            'year'=> $request->year
+        ]);
     }
 
     /**
@@ -59,6 +67,6 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        return $car->delete();
     }
 }
