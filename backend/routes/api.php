@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CarController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,4 +41,12 @@ Route::get('/test', function() {
 
 Route::apiResource('cars', CarController::class);
 
+Route::prefix('auth')->group(function () {
+    Route::post('register', [AuthController::class, 'register']);
+    Route::post('login', [AuthController::class, 'login']);
+    Route::get('logout', [AuthController::class, 'logout'])
+        ->middleware('auth:sanctum');;
+    Route::get('user', [AuthController::class, 'user'])
+        ->middleware('auth:sanctum');
+});
 
