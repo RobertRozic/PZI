@@ -92,7 +92,7 @@ DELETE
     $car = Car::find(1);
     $car->delete();
     
-## Upute za postavljanje frondenda projekta na studentski server
+## Upute za postavljanje frontenda projekta na studentski server
 
 
 #### 1. Prijava na studentski poslužitelj
@@ -107,8 +107,6 @@ DELETE
 
 **YYYY** akademska godina
 
-**Napomena**: Studenti iz Orašja koriste korisničko ime **pzio**
-
 <br>
 
 #### 2. Unutar Vašeg foldera klonirati repozitorij s githuba
@@ -119,7 +117,7 @@ DELETE
      ln -s /home/pziXXYYYY/ime-projekta/frontend/dist /home/pziXXYYYY/public
 
 * Ukoliko naredba javi da file vec postoji, odradite:
-`rm -rf ~/front`
+`rm -rf ~/public`
   
 Napomena: Folder koji linkate je folder u kojem se nalazi vaš index.html/index.php
 
@@ -214,7 +212,7 @@ Generiramo key aplikacije
 * **pwd** - Ispis putanje trenutnog foldera u kojemu se nalazimo (**p**rint **w**ork **d**irectory)
 
 `pwd`  
-`/home/pzi002022`
+`/home/pzi002024`
 
 * **cd** - Promjena direktorija (**c**hange **d**irectory)
 
